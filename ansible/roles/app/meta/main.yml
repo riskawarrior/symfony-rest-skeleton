@@ -1,5 +1,0 @@
----
-  dependencies:
-    - role: lamp
-    - role: nodejs
-    - role: ccutils

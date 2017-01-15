@@ -4,8 +4,8 @@ php:
   - 7.0
   - 7.1
 
-node_js:
-  - 6.9
+env:
+  - TRAVIS_NODE_VERSION="6"
 
 services:
   - mysql
@@ -16,6 +16,11 @@ cache:
 
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+  - pear channel-discover pear.phing.info
+  - pear install phing/phing
+  - phpenv rehash
+  - wget https://getcomposer.org/composer.phar
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
 
 install:
   - phing test-init
