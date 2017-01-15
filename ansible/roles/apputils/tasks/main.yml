@@ -1,0 +1,17 @@
+---
+  - name: Install Pear
+    apt:
+      name: php-pear
+      state: present
+  - name: Discover Phing
+    shell: "pear channel-discover pear.phing.info"
+    args:
+      creates: /usr/bin/phing
+  - name: Install Phing
+    pear:
+      name: phing/phing
+      state: present
+  - name: Install Sphinx
+    apt:
+      name: python3-sphinx
+      state: present

@@ -1,0 +1,46 @@
+default:
+    autoload: "%paths.base%/tests"
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+            sessions:
+                app_session:
+                    symfony2: ~
+#            show_cmd: firefox.exe %s
+        BehatExtension\DoctrineDataFixturesExtension\Extension:
+            lifetime:    feature
+            autoload:    true
+            directories: ~
+            fixtures:    ~
+        Sanpi\Behatch\Extension: ~
+    suites:
+        AppBundle_non_destructive:
+            type: symfony_bundle
+            bundle: AppBundle
+            contexts:
+                - Sanpi\Behatch\Context\RestContext
+                - Sanpi\Behatch\Context\JsonContext
+                - Acme\Context\RestJsonContext
+                - Acme\AppBundle\Functional\NonDestructive\Context
+            paths:
+                - tests/AppBundle/Functional/NonDestructive
+        AppBundle_destructive:
+            type: symfony_bundle
+            bundle: AppBundle
+            contexts:
+                - Sanpi\Behatch\Context\RestContext
+                - Sanpi\Behatch\Context\JsonContext
+                - Acme\Context\RestJsonContext
+                - Acme\AppBundle\Functional\Destructive\Context
+            paths:
+                - tests/AppBundle/Functional/Destructive
+        UserBundle:
+            type: symfony_bundle
+            bundle: UserBundle
+            contexts:
+                - Sanpi\Behatch\Context\RestContext
+                - Sanpi\Behatch\Context\JsonContext
+                - Acme\Context\RestJsonContext
+                - Acme\UserBundle\Functional\Context
+            paths:
+                - tests/UserBundle/Functional

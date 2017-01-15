@@ -1,0 +1,13 @@
+---
+  - name: NodeJS apt repository
+    shell: "curl -sL {{ nodejs_installer_url }} | bash -"
+    args:
+      creates: /usr/bin/node
+  - name: NodeJS install
+    apt:
+      name: '{{ item }}'
+      state: present
+      force: yes
+    with_items:
+      - build-essential
+      - nodejs

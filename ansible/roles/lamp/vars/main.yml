@@ -1,0 +1,21 @@
+---
+  lamp_packages:
+    - apache2
+    - php
+    - libapache2-mod-php
+    - mysql-server
+    - mysql-client
+    - python-mysqldb
+    - php-dev
+    - php-cli
+    - php-json
+    - php-ldap
+    - php-mysql
+    - php-intl
+    - php-apcu
+    - php-curl
+    - php-mbstring
+  mysql_server_config: /etc/mysql/mysql.conf.d/mysqld.cnf
+  mysql_query_cache_limit: 4M
+  mysql_query_cache_size: 64M
+  mysql_tempdir: /run/mysqld

@@ -1,0 +1,14 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+auth:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /auth
+auth_login:
+    path:     /auth/login
+auth_logout:
+    path:     /auth/logout
+    methods:  [GET, POST]

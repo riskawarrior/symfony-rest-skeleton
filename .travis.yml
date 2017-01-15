@@ -1,0 +1,28 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+
+node_js:
+  - 6.9
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+
+install:
+  - phing test-init
+  - phing test-regenerate-database
+  - cp phpunit.xml.dist phpunit.xml
+  - cp behat.yml.dist behat.yml
+
+script:
+  - phing test-run-tests
+  - npm test

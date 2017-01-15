@@ -1,0 +1,10 @@
+---
+  - name: Copy mysql patch script to tmp
+    copy:
+      src: files/mysql-root-reset.sql
+      dest: /tmp
+  - name: Enable mysql root login
+    mysql_db:
+      name: mysql
+      state: import
+      target: /tmp/mysql-root-reset.sql

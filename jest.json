@@ -1,0 +1,7 @@
+{
+    "rootDir": "web/assets/js",
+    "testRegex": "/tests/.*",
+    "globals": {
+        "baseURL": "localhost"
+    }
+}

@@ -1,0 +1,48 @@
+---
+  - name: Set proper file ownership
+    file:
+      path: /var/www
+      group: www-data
+      owner: www-data
+      recurse: yes
+      state: directory
+  - name: Create app database
+    mysql_db:
+      name: app
+      state: present
+    notify:
+      - repair mysql root user
+  - meta: flush_handlers
+  - name: Clone sources
+    git:
+      repo: '{{ repo_url }}'
+      dest: /var/www/app
+      update: no
+    become: yes
+    become_user: www-data
+  - name: Install frontend dependencies
+    npm:
+      path: /var/www/app
+      state: latest
+    production: yes
+    become: yes
+    become_user: www-data
+    become_method: sudo
+    become_flags: "-EH"
+  - name: Download composer
+    get_url:
+      url: "https://getcomposer.org/composer.phar"
+      dest: /var/www/app/composer.phar
+    become: yes
+    become_user: www-data
+    become_method: sudo
+    become_flags: "-EH"
+  - name: Install PHP application
+    shell: "phing prod-init"
+    args:
+      chdir: /var/www/app
+      creates: /var/www/app/vendor
+    become: yes
+    become_user: www-data
+    become_method: sudo
+    become_flags: "-EH"

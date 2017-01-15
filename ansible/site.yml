@@ -1,0 +1,8 @@
+---
+  - name: Production server
+    hosts: master
+    roles:
+      - utilities
+      - app
+    vars:
+      repo_url: "https://github.com/riskawarrior/symfony-rest-skeleton.git"

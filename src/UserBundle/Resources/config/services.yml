@@ -1,0 +1,4 @@
+services:
+    user.service.register:
+        class: Acme\UserBundle\Service\UserRegister
+        autowire: true
