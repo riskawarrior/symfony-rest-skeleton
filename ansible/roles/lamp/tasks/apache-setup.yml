@@ -1,16 +1,19 @@
 ---
-  - name: Apache site config copy
-    copy:
-      src: files/apache-site.conf
-      dest: /etc/apache2/sites-enabled/000-default.conf
   - name: Required Apache mods
     apache2_module:
       name: '{{ item }}'
       state: present
     with_items:
+      - proxy_fcgi
       - rewrite
       - headers
       - expires
       - deflate
+    notify:
+      - restart apache
+  - name: Apache site config copy
+    copy:
+      src: files/apache-site.conf
+      dest: /etc/apache2/sites-enabled/000-default.conf
     notify:
       - restart apache

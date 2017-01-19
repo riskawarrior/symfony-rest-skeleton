@@ -4,6 +4,6 @@
       name: '{{ item }}'
       state: present
     with_items: '{{ lamp_packages }}'
-  - include: mysql-config.yml
+#  - include: mysql-config.yml
   - include: php-config.yml
   - include: apache-setup.yml

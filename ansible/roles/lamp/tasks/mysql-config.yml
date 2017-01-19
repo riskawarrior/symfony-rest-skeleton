@@ -1,18 +1,8 @@
 ---
-  - name: Increase mysql cache limit
-    lineinfile:
-      line: 'query_cache_limit       = {{ mysql_query_cache_limit }}'
-      dest: '{{ mysql_server_config }}'
-      regexp: '^query_cache_limit\s+='
-  - name: Increase mysql cache size
-    lineinfile:
-      line: 'query_cache_size        = {{ mysql_query_cache_size }}'
-      dest: '{{ mysql_server_config }}'
-      regexp: '^query_cache_size\s+='
-  - name: Set mysql temp directory
-    lineinfile:
-      line: 'tmpdir = {{ mysql_tempdir }}'
-      dest: '{{ mysql_server_config }}'
-      regexp: '^tmpdir\s+='
-    notify:
-      - restart mysql
+#  - name: Set mysql temp directory
+#    lineinfile:
+#      line: 'tmpdir = {{ mysql_tempdir }}'
+#      dest: '{{ mysql_server_config }}'
+#      regexp: '^tmpdir\s+='
+#    notify:
+#      - restart mysql

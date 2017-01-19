@@ -7,6 +7,7 @@
       name: '{{ item }}'
       state: latest
     with_items:
+      - build-essential
       - zip
       - unzip
       - git

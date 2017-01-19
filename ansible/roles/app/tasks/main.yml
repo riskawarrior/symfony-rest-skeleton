@@ -11,7 +11,7 @@
       name: app
       state: present
     notify:
-      - repair mysql root user
+      - enable local root
   - meta: flush_handlers
   - name: Clone sources
     git:

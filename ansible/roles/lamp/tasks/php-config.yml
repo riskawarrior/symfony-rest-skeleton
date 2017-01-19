@@ -2,7 +2,7 @@
   - name: Tweak PHP Opcache config
     copy:
       src: files/php-opcache.ini
-      dest: /etc/php/7.0/apache2/conf.d/10-opcache.ini
+      dest: /etc/php/7.0/fpm/conf.d/10-opcache.ini
     notify:
       - restart apache
   - name: Enable apcu

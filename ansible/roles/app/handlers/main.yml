@@ -1,8 +1,4 @@
 ---
-  - name: restart mysql
-    service:
-      name: mysql
-      state: restarted
-  - name: enable local root user login
+  - name: enable local root
     include:
       repair_mysql_root.yml
