@@ -24,7 +24,7 @@
     npm:
       path: /var/www/app
       state: latest
-    production: yes
+      production: yes
     become: yes
     become_user: www-data
     become_method: sudo

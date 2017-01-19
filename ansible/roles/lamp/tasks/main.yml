@@ -1,7 +1,7 @@
 ---
   - name: Install LAMP packages
     apt:
-      name: {{ item }}
+      name: '{{ item }}'
       state: present
     with_items: '{{ lamp_packages }}'
   - include: mysql-config.yml

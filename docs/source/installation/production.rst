@@ -13,8 +13,8 @@ Install latest Ansible::
 
 Clone the repository::
 
-   git clone https://github.com/riskawarrior/symfony-rest-skeleton.git
+   git clone https://github.com/riskawarrior/symfony-rest-skeleton.git /var/www/app
 
 Initialize everything::
 
-   ansible-playbook -i "master," -c local symfony-rest-skeleton/ansible/site.yml
+   ansible-playbook -i "master," -c local /var/www/app/ansible/site.yml
