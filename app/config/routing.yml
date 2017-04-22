@@ -12,3 +12,7 @@ auth_login:
 auth_logout:
     path:     /auth/logout
     methods:  [GET, POST]
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /docs/api
