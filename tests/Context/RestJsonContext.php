@@ -4,8 +4,8 @@ namespace Acme\Context;
 
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
-use Sanpi\Behatch\Context\BaseContext;
-use Sanpi\Behatch\HttpCall\Request;
+use Behatch\Context\BaseContext;
+use Behatch\HttpCall\Request;
 
 class RestJsonContext extends BaseContext  {
 
