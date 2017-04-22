@@ -22,7 +22,7 @@ framework:
     validation:      { enable_annotations: true }
     #serializer:      { enable_annotations: true }
     templating:
-        engines: ['twig']
+        engines: 'php'
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -35,11 +35,6 @@ framework:
     assets: ~
     serializer:
         enabled: true
-
-# Twig Configuration
-twig:
-    debug:            "%kernel.debug%"
-    strict_variables: "%kernel.debug%"
 
 # Doctrine Configuration
 doctrine:

@@ -10,7 +10,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/")
-     * @Template(":default:index.html.twig")
+     * @Template(":default:index.html.php")
      */
     public function indexAction()
     {
